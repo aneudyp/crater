@@ -1,0 +1,31 @@
+Para implementar Crater Invoice en Vercel con una base de datos MySQL externa, puedes seguir los siguientes pasos:
+
+Crea una cuenta en Vercel y descarga la herramienta de línea de comandos (CLI) de Vercel.
+
+Crea una base de datos MySQL externa. Puedes utilizar un servicio de hosting como AWS RDS o DigitalOcean. Asegúrate de anotar el nombre de host, el nombre de usuario, la contraseña y el nombre de la base de datos que creaste.
+
+Clona el repositorio de Crater Invoice desde GitHub:
+
+git clone https://github.com/craterapp/crater.git
+
+Accede al directorio del repositorio clonado:
+cd crater
+
+Inicia sesión en Vercel utilizando la CLI:
+vercel login
+
+Importa el repositorio de Crater Invoice a Vercel:
+Copy code
+vercel import
+
+Configura las variables de entorno para conectarse a tu base de datos MySQL externa. Puedes hacerlo en la página de configuración de la aplicación en Vercel o utilizando el siguiente comando:
+Copy code
+vercel env add DB_HOST=hostname DB_DATABASE=database_name DB_USERNAME=username DB_PASSWORD=password
+
+Ejecuta las migraciones de la base de datos para crear las tablas necesarias:
+Copy code
+vercel run npm run migrate
+
+Abre la aplicación en el navegador:
+Copy code
+vercel open
